@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gore Tailoring Material - Billing</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Gore Tailoring Material</h1>
+        <p>Shop No.3, Dr. Rajendra Prasad Road, Ramnagar, Dombivli (East)</p>
+        <p>Owner: Ajit Gore | Phone: 8879341755</p>
+        <form method="POST" action="/generate-bill">
+            <label>Customer Name:</label>
+            <input type="text" name="customerName" required>
+
+            <div id="items-container"></div>
+            <button type="button" onclick="addItem()">Add Item</button><br><br>
+
+            <input type="submit" value="Generate Bill">
+        </form>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script>
+        const products = {{ products|tojson }};
+        addItem();  // Add one row by default
+    </script>
+</body>
+</html>

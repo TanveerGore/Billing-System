@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Invoice - Gore Tailoring Material</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        body::before {
+            content: "";
+            position: fixed;
+            background-image: url('{{ url_for('static', filename='images/GTM.png') }}');
+            background-size: 300px;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.1;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div class="invoice">
+        <h2>Gore Tailoring Material</h2>
+        <p>Shop No.3, Dr. Rajendra Prasad Road, Ramnagar, Dombivli (East)</p>
+        <p>Owner: Ajit Gore | Phone: 8879341755</p>
+        <p><strong>Bill No.:</strong> {{ bill_no }}</p>
+        <p><strong>Customer Name:</strong> {{ customer_name }}</p>
+        <hr>
+
+        <table>
+            <tr>
+                <th>Description</th>
+                <th>Qty</th>
+                <th>Rate</th>
+                <th>Amount</th>
+            </tr>
+            {% for item in bill_items %}
+            <tr>
+                <td>{{ item.description }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>₹{{ item.price }}</td>
+                <td>₹{{ item.amount }}</td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="3" style="text-align:right;"><strong>Total:</strong></td>
+                <td><strong>₹{{ total }}</strong></td>
+            </tr>
+        </table>
+
+        <button onclick="window.print()">Print</button>
+    </div>
+</body>
+</html>
