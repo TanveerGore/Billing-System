@@ -18,6 +18,9 @@ A simple and user-friendly **Tailoring Shop Billing System** built with Python a
 - 🎨 Old-school user interface with modern usability
 - 📦 Lightweight, standalone `.py` file
 
+---
+
+
 
 ---
 
@@ -57,6 +60,7 @@ Billing-System/
 ├── logo.png                 # Shop logo for invoice background
 ├── bills/                   # Folder where invoices are saved
 └── README.md                # This file
+```
 
 ---
 
@@ -75,6 +79,9 @@ Billing-System/
 - 💡 You can update item lists in the source code to match your shop's inventory
 - 🖼️ Replace `logo.png` with your own branding
 - 🧮 Tax percentage and pricing logic can be easily updated in the `billing_system.py`
+
+---
+
 
 ---
 
